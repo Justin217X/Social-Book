@@ -1,0 +1,108 @@
+.signup {
+    display: flex;
+    background-color: #c4c7ca;
+    justify-content: center;
+    padding: 70px;
+}
+
+body {
+    background-color: #c4c7ca;
+}
+
+.registerbox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, .75);
+    width: 300px;
+    text-align: center;
+    padding: 30px;
+}
+
+.registerbox>h1 {
+    padding-bottom: 20px;
+}
+
+.name {
+    padding: 10px;
+}
+
+.name>input {
+    text-align: center;
+    background-color: #eff2f5;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+.password, .match {
+    padding: 10px;
+}
+
+.password>input, .match>input {
+    text-align: center;
+    background-color: #eff2f5;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.signupBtn:disabled {
+    opacity: 0.5;
+    background-color: #2e81f4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 30px;
+}
+
+.signupBtn {
+    background-color: #2e81f4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.loginlink {
+    border: 1px solid #2e81f4;
+    background-color: #2e81f4;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.instructions>svg {
+    margin-right: 0.25rem;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+/* .errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+} */
+
