@@ -1,5 +1,5 @@
 import React from "react";
-import "./Unauthorized.css";
+import "./css/Unauthorized.css";
 import { useNavigate } from "react-router-dom";
 
 const Unauthorized = () => {

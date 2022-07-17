@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./SignUp.css";
+import "./css/SignUp.css";
 import {
   faCheck,
   faTimes,
