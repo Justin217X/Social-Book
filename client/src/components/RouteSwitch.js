@@ -3,7 +3,6 @@ import App from "../App";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-
 const RouteSwitch = () => {
     return (
         <BrowserRouter>
