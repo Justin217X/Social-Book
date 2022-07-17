@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp";
 import Unauthorized from "./components/Unauthorized";
 import RequireAuth from "./components/RequireAuth";
 import App from "./App";
+import PersistLogin from "./components/PersistLogin";
 
 // const ROLES = {
 //     'User': 2001,
@@ -22,8 +23,10 @@ const SocialBook = () => {
         <Route path="register" element={<SignUp />} />
         <Route path="unauthorized" element={<Unauthorized />} />
         {/* Protected Routes */}
-        <Route element={<RequireAuth allowedRoles={[2001]} />}>
-          <Route path="/" element={<App />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth allowedRoles={[2001]} />}>
+            <Route path="/" element={<App />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

@@ -13,6 +13,7 @@
 
 .header-left>img {
     height: 50px;
+    border-radius: 999px;
 }
 
 .header-input {
@@ -57,4 +58,15 @@
 
 .header-option-active>.MuiSvgIcon-root {
     color: #2e81f4;
+}
+
+.logoutBtn {
+    background-color: #2e81f4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    cursor: pointer;
 }
