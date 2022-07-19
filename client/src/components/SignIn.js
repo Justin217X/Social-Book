@@ -8,7 +8,8 @@ import axios from "./api/axios";
 const LOGIN_URL = "/auth";
 
 const SignIn = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, auth } = useAuth();
+  console.log(useAuth(), "AUTHHHH");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,10 +43,12 @@ const SignIn = () => {
         }
       );
       // console.log(JSON.stringify(response?.data));
-      // console.log(JSON.stringify(response))
+      console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
       setAuth({ user, pwd, roles, accessToken });
+      console.log({ user, pwd, roles, accessToken }, "SignIN!");
+
       setUser("");
       setPwd("");
       navigate(from, { replace: true });

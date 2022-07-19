@@ -6,16 +6,14 @@ import { AuthProvider } from "./components/context/AuthProvider";
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="App">
-        <Header />
+    <div className="App">
+      <Header />
 
-        <div className="app-body">
-          <Sidebar />
-          <Feed />
-        </div>
+      <div className="app-body">
+        <Sidebar />
+        <Feed />
       </div>
-    </AuthProvider>
+    </div>
   );
 }
 
