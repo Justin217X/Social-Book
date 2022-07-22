@@ -8,7 +8,7 @@ import axios from "./api/axios";
 const LOGIN_URL = "/auth";
 
 const SignIn = () => {
-  const { setAuth, auth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
   console.log(useAuth(), "AUTHHHH");
 
   const navigate = useNavigate();
@@ -40,7 +40,8 @@ const SignIn = () => {
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
-        }
+        },
+        localStorage.setItem("name", user)
       );
       // console.log(JSON.stringify(response?.data));
       console.log(JSON.stringify(response));
@@ -66,6 +67,14 @@ const SignIn = () => {
       errRef.current.focus();
     }
   };
+
+  const togglePersist = () => {
+    setPersist((prev) => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("persist", persist);
+  }, [persist]);
 
   return (
     <div className="signin">
@@ -107,6 +116,15 @@ const SignIn = () => {
           <button type="submit" className="loginBtn">
             Login
           </button>
+          <div className="checkbox">
+            <input
+              type="checkbox"
+              id="persist"
+              onChange={togglePersist}
+              checked={persist}
+            />
+            <label htmlFor="persist">Trust This Device?</label>
+          </div>
         </form>
         <div>
           <Link to="/register" className="registerlink">

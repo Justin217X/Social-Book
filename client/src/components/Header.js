@@ -13,6 +13,8 @@ const Header = () => {
   const navigate = useNavigate();
   const logout = useLogout();
 
+  const Name = localStorage.getItem("name");
+
   const signOut = async () => {
     await logout();
     navigate("/login");
@@ -35,7 +37,7 @@ const Header = () => {
       <div className="header-right">
         <div className="header-option">
           <Person fontsize="large" />
-          <h4>UserName</h4>
+          <h4>{Name}</h4>
         </div>
 
         <div className="header-option">

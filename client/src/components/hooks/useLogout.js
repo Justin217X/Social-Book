@@ -10,6 +10,7 @@ const useLogout = () => {
       const response = await axios("/logout", {
         withCredentials: true,
       });
+      localStorage.removeItem("name");
     } catch (err) {
       console.error(err);
     }
