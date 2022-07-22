@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
+const Post = require("./model/Post");
 
 //Handle options credentials check - before CORS
 //and fetch cookies credentials requirement
@@ -32,8 +33,26 @@ app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
-app.use("/posts", require("./routes/post"));
-app.use("/postTest", require("./routes/pt"));
+app.use("/post", require("./routes/post"));
+app.get("/allPosts", (req, res) => {
+  Post.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
+
+app.get("/singlePost", (req, res) => {
+  Post.findById("62d689e554bcc837dc4006e8")
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
 
 app.use(verifyJWT);
 app.use("/users", require("./routes/api/users"));

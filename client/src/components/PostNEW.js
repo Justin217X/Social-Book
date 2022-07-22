@@ -3,25 +3,22 @@ import { Comment, ThumbUp } from "@material-ui/icons";
 import React from "react";
 import "./css/Post.css";
 
-const Post = ({
-  profilePic,
-  username = "Admin",
-  timestamp = "12/12/12",
-  message = "Welcome to SocialBook",
-}) => {
+const PostNEW = ({ profilePic, creator, timestamp, content }) => {
+  const date = new Date();
+  timestamp = date.toLocaleString();
   return (
     <div className="post">
       <div className="post-top">
         <Avatar src={profilePic} className="post-avatar" />
         <div className="post-top-info">
-          <h3>{username}</h3>
+          <h3>{creator}</h3>
           <p>{timestamp}</p>
         </div>
       </div>
 
       <div className="post-bottom">
         <div className="post-message">
-          <p>{message}</p>
+          <p>{content}</p>
         </div>
 
         <div className="post-options">
@@ -40,4 +37,4 @@ const Post = ({
   );
 };
 
-export default Post;
+export default PostNEW;

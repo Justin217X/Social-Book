@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const PostTestSchema = mongoose.Schema({
+const PostSchema = mongoose.Schema({
   creator: { type: String },
   content: { type: String },
   files: { type: String },
 });
 
-module.exports = mongoose.model("Post", PostTestSchema);
+module.exports = mongoose.model("Post", PostSchema);
