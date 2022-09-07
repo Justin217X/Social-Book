@@ -1,0 +1,35 @@
+.allusers {
+    /* display: flex; */
+    flex: .33;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.userSearch {
+    padding: 5px 20px;
+    margin-left: 30px;
+    width: 15rem;
+    border-radius: 999px;
+    background-color: white;
+    margin-bottom: -20px;
+}
+
+.user {
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, .75);
+    display: flex;
+    margin-bottom: 10px;
+    min-width: 15rem;
+    padding: 15px 20px;
+    word-break: break-all;
+}
+
+.user:hover {
+    background-color: rgb(206, 204, 204);
+}
+
+.avatar {
+    margin-right: 10px;
+}

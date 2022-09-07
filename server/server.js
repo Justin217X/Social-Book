@@ -10,6 +10,7 @@ const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
 const Post = require("./model/Post");
+const User = require("./model/User");
 
 //Handle options credentials check - before CORS
 //and fetch cookies credentials requirement
@@ -44,6 +45,16 @@ app.get("/allPosts", (req, res) => {
     });
 });
 
+app.get("/allUsers", (req, res) => {
+  User.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
+
 app.get("/singlePost", (req, res) => {
   Post.findById("62d689e554bcc837dc4006e8")
     .then((result) => {
@@ -66,8 +77,6 @@ app.use(function (err, req, res, next) {
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
-
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 mongoose
   .connect(process.env.MONGO_URI)

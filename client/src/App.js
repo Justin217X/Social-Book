@@ -3,6 +3,7 @@ import Feed from "./components/Feed";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { AuthProvider } from "./components/context/AuthProvider";
+import AllUsers from "./components/AllUsers";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <Feed />
+        <AllUsers />
       </div>
     </div>
   );
