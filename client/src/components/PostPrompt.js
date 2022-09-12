@@ -53,29 +53,16 @@ const PostPrompt = () => {
       }
       errRef.current.focus(); // for screen readers
     }
-    document.location.reload(true);
+    getPosts();
   };
-  useEffect(() => {
-    let unmounted = false;
-    fetch("http://localhost:9000/allPosts")
-      .then((response) => {
-        // console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        // console.log(data, "DATATATATA");
-        if (!unmounted) {
-          setData(data);
-        }
-      })
-      .catch((err) => {
-        // console.log(err.message, "POOOOOOOOOOOOOOOOOOOOST");
-      });
 
-    return () => {
-      unmounted = true;
-    };
-  }, []);
+  const getPosts = async () => {
+    const response = await fetch("http://localhost:9000/allPosts");
+    const data = await response.json();
+    setData(data);
+  };
+
+  getPosts();
 
   return (
     <div>
@@ -126,16 +113,18 @@ const PostPrompt = () => {
 
       <div>
         {data &&
-          data?.map((post, index) => {
-            return (
-              <PostNEW
-                key={index}
-                creator={post.creator}
-                files={post.files}
-                content={post.content}
-              />
-            );
-          })}
+          data
+            ?.map((post, index) => {
+              return (
+                <PostNEW
+                  key={index}
+                  creator={post.creator}
+                  files={post.files}
+                  content={post.content}
+                />
+              );
+            })
+            ?.reverse()}
       </div>
     </div>
   );
